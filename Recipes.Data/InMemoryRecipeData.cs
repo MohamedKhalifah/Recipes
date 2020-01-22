@@ -19,6 +19,12 @@ namespace Recipes.Data
             };
         }
 
+        public void CreateRecipe(Recipe recipe)
+        {
+            recipe.Id = recipes.Max(r => r.Id) + 1;
+            recipes.Add(recipe);
+        }
+
         public IEnumerable<Recipe> GetAll()
         {
             return recipes;

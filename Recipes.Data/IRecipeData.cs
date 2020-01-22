@@ -10,5 +10,6 @@ namespace Recipes.Data
         public IEnumerable<Recipe> GetRecipesByName(string name);
         Recipe GetRecipeById(int id);
         Recipe UpdateRecipe(Recipe updatedRecipe);
+        void CreateRecipe(Recipe recipe);
     }
 }

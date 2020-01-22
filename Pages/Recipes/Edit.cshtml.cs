@@ -25,10 +25,19 @@ namespace Recipes.Pages.Recipes
             _htmlHelper = htmlHelper;
         }
 
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            Recipe = _recipeData.GetRecipeById(id);
             Categories = _htmlHelper.GetEnumSelectList<RecipeCategory>();
+
+            if (id == null)
+            {
+                Recipe = new Recipe();
+            }
+            else
+            {
+                Recipe = _recipeData.GetRecipeById(id.Value);
+            }
+
             if (Recipe == null)
             {
                 return RedirectToPage("../Shared/NotFound");
@@ -44,7 +53,16 @@ namespace Recipes.Pages.Recipes
                 Categories = _htmlHelper.GetEnumSelectList<RecipeCategory>();
                 return Page();
             }
-            Recipe = _recipeData.UpdateRecipe(Recipe);
+
+            if (Recipe.Id > 0)
+            {
+                _recipeData.UpdateRecipe(Recipe);
+            }
+            else
+            {
+                _recipeData.CreateRecipe(Recipe);
+            }
+
             return RedirectToPage("./Index");
         }
     }
