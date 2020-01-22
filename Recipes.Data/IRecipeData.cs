@@ -9,5 +9,6 @@ namespace Recipes.Data
         public IEnumerable<Recipe> GetAll();
         public IEnumerable<Recipe> GetRecipesByName(string name);
         Recipe GetRecipeById(int id);
+        Recipe UpdateRecipe(Recipe updatedRecipe);
     }
 }

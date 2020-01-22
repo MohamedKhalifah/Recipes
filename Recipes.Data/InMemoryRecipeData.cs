@@ -39,5 +39,19 @@ namespace Recipes.Data
 
             return result;
         }
+
+        public Recipe UpdateRecipe(Recipe updatedRecipe)
+        {
+            var recipe = recipes.SingleOrDefault(r => r.Id == updatedRecipe.Id);
+
+            if (recipe != null)
+            {
+                recipe.Name = updatedRecipe.Name;
+                recipe.Review = updatedRecipe.Review;
+                recipe.Category = updatedRecipe.Category;
+            }
+
+            return recipe;
+        }
     }
 }
