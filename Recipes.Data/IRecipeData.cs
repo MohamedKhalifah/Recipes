@@ -11,5 +11,7 @@ namespace Recipes.Data
         Recipe GetRecipeById(int id);
         Recipe UpdateRecipe(Recipe updatedRecipe);
         void CreateRecipe(Recipe recipe);
+        void DeleteRecipe(int id);
+        int Commit();
     }
 }

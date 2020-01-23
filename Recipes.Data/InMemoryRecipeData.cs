@@ -19,10 +19,26 @@ namespace Recipes.Data
             };
         }
 
+        public int Commit()
+        {
+            // Simulate Committed Successfully
+            return 1;
+        }
+
         public void CreateRecipe(Recipe recipe)
         {
             recipe.Id = recipes.Max(r => r.Id) + 1;
             recipes.Add(recipe);
+        }
+
+        public void DeleteRecipe(int id)
+        {
+            var recipe = GetRecipeById(id);
+            if (recipe == null)
+            {
+                return;
+            }
+            recipes.Remove(recipe);
         }
 
         public IEnumerable<Recipe> GetAll()
