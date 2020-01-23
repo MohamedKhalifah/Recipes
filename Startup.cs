@@ -29,7 +29,7 @@ namespace Recipes
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("Recipes"));
             });
-            services.AddSingleton<IRecipeData, InMemoryRecipeData>();
+            services.AddScoped<IRecipeData, SqlRecipeData>();
             services.AddRazorPages();
         }
 

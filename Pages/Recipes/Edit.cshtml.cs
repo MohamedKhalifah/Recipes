@@ -62,7 +62,7 @@ namespace Recipes.Pages.Recipes
             {
                 _recipeData.CreateRecipe(Recipe);
             }
-
+            _recipeData.Commit();
             return RedirectToPage("./Index");
         }
     }
