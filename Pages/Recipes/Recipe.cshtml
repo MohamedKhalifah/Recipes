@@ -1,0 +1,10 @@
+﻿@page "{id:int}"
+@model Recipes.RecipeModel
+@{
+}
+
+<h2> @Model.Recipe.Name </h2>
+<div> Category: @Model.Recipe.Category </div>
+<div> Review: @Model.Recipe.Review </div>
+
+<a asp-page="./Index" class="btn btn-primary">Return To Recipes List</a>

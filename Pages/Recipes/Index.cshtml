@@ -1,0 +1,47 @@
+﻿@page
+@model Recipes.IndexModel
+@{
+}
+
+<h1> Recipes </h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input asp-for="SearchTerm" type="search" class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    @foreach (var item in Model.Recipes)
+    {
+    <tr>
+        <td> @item.Name </td>
+        <td> @item.Category </td>
+        <td> @item.Review </td>
+        <td>
+            <a class="btn btn-default" asp-page="./Recipe" asp-route-Id="@item.Id" title="View">
+                <i class="glyphicon glyphicon-eye-open"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-default" asp-page="./Edit" asp-route-Id="@item.Id" title="Edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-default" asp-page="./Delete" asp-route-Id="@item.Id" title="Delete">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </td>
+    </tr>
+    }
+</table>
+
+<a asp-page="./Edit" class="btn btn-primary"> Create Recipe </a>
