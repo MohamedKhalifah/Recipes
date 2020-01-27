@@ -26,10 +26,14 @@
             <td> @item.Category </td>
             <td> @item.Review </td>
             <td>
-                <a class="btn btn-lg" asp-page="./Recipe" asp-route-Id="@item.Id">View Recipe</a>
+                <a class="btn btn-default" asp-page="./Recipe" asp-route-Id="@item.Id">
+                    <i class="glyphicon glyphicon-eye-open" title="View"></i>
+                </a>
             </td>
             <td>
-                <a class="btn btn-block" asp-page="./Edit" asp-route-Id="@item.Id">Edit Recipe</a>
+                <a class="btn btn-default" asp-page="./Edit" asp-route-Id="@item.Id">
+                    <i class="glyphicon glyphicon-edit" title="Edit"></i>
+                </a>
             </td>
         </tr>
     }
