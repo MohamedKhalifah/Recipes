@@ -18,24 +18,29 @@
     </div>
 </form>
 
-<table>
+<table class="table">
     @foreach (var item in Model.Recipes)
     {
-        <tr>
-            <td> @item.Name </td>
-            <td> @item.Category </td>
-            <td> @item.Review </td>
-            <td>
-                <a class="btn btn-default" asp-page="./Recipe" asp-route-Id="@item.Id">
-                    <i class="glyphicon glyphicon-eye-open" title="View"></i>
-                </a>
-            </td>
-            <td>
-                <a class="btn btn-default" asp-page="./Edit" asp-route-Id="@item.Id">
-                    <i class="glyphicon glyphicon-edit" title="Edit"></i>
-                </a>
-            </td>
-        </tr>
+    <tr>
+        <td> @item.Name </td>
+        <td> @item.Category </td>
+        <td> @item.Review </td>
+        <td>
+            <a class="btn btn-default" asp-page="./Recipe" asp-route-Id="@item.Id" title="View">
+                <i class="glyphicon glyphicon-eye-open"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-default" asp-page="./Edit" asp-route-Id="@item.Id" title="Edit">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-default" asp-page="./Delete" asp-route-Id="@item.Id" title="Delete">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </td>
+    </tr>
     }
 </table>
 
