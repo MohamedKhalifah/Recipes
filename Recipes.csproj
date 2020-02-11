@@ -7,15 +7,20 @@
   <ItemGroup>
     <Compile Remove="Recipes.Core\**" />
     <Compile Remove="Recipes.Data\**" />
+    <Compile Remove="Recipes.Web\**" />
     <Content Remove="Recipes.Core\**" />
     <Content Remove="Recipes.Data\**" />
+    <Content Remove="Recipes.Web\**" />
     <EmbeddedResource Remove="Recipes.Core\**" />
     <EmbeddedResource Remove="Recipes.Data\**" />
+    <EmbeddedResource Remove="Recipes.Web\**" />
     <None Remove="Recipes.Core\**" />
     <None Remove="Recipes.Data\**" />
+    <None Remove="Recipes.Web\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
