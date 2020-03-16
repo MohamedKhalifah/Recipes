@@ -7,6 +7,7 @@ namespace Recipes.Data
     public interface IRecipeData
     {
         public IEnumerable<Recipe> GetAll();
+        public IEnumerable<Recipe> GetRecipes(RecipeCategory? category, string name);
         public IEnumerable<Recipe> GetRecipesByName(string name);
         Recipe GetRecipeById(int id);
         Recipe UpdateRecipe(Recipe updatedRecipe);

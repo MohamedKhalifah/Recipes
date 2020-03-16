@@ -6,7 +6,7 @@ namespace Recipes.Core
 {
     public enum RecipeCategory
     {
-        Chicken,
+        Chicken = 1,
         Breakfast,
         Shrimp,
         Cake,

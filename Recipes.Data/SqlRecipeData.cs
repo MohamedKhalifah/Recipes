@@ -46,6 +46,15 @@ namespace Recipes.Data
             return dbContext.Recipes.Find(id);
         }
 
+        public IEnumerable<Recipe> GetRecipes(RecipeCategory? category, string name)
+        {
+            IQueryable<Recipe> recipes = category == null ? dbContext.Recipes : dbContext.Recipes.Where(r => r.Category == category);
+            recipes = recipes.Where(r => r.Name.Contains(name) ||
+                                                string.IsNullOrEmpty(name));
+
+            return recipes.OrderBy(r => r.Name);
+        }
+
         public IEnumerable<Recipe> GetRecipesByName(string name)
         {
             return dbContext.Recipes.Where(r => r.Name.StartsWith(name) ||

@@ -52,14 +52,23 @@ namespace Recipes.Data
             return result;
         }
 
-        public IEnumerable<Recipe> GetRecipesByName(string name)
+        public IEnumerable<Recipe> GetRecipes(RecipeCategory? category, string name)
         {
-            var result = from r in recipes
+            var result = category == null ? recipes : recipes.Where(r => r.Category == category);
+            result = from r in result
                    where r.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase)
                    orderby r.Name
                    select r;
 
             return result;
+        }
+
+        public IEnumerable<Recipe> GetRecipesByName(string name)
+        {
+            return from r in recipes
+            where r.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase)
+            orderby r.Name
+            select r;
         }
 
         public Recipe UpdateRecipe(Recipe updatedRecipe)
